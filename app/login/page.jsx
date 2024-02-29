@@ -1,12 +1,17 @@
 "use client";
 import "@/app/ui/login/loginPage.css"
-import { signIn, useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react"
+;
+import { useRouter } from "next/navigation";
 export default function Login() {
   
   const {data,status} = useSession();
-  
-  console.log(data, status);
+  const router = useRouter();
 
+  console.log(data, status);
+  if(status === "loading") return <div>Loading...</div>
+  
+  if(status === "authenticated") router.push("/");
   return (
     <div className="flex items-center justify-center mt-16">
       <div className="wrapper bg-gray-300 pt-[150px] pb-[150px] pl-[200px] pr-[200px] flex flex-col gap-[50px] rounded-lg text-white">

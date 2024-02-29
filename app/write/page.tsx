@@ -5,12 +5,16 @@ import { useState } from "react"
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.bubble.css';
 import { PlusIcon, PhotoIcon, ArrowUpOnSquareIcon, VideoCameraIcon } from "@heroicons/react/24/outline";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 export default function WritePage() {
-  
+    const { status } = useSession();
+    const router = useRouter();
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState("");
-
+  
+    if(status === "unauthenticated") router.push("/");
 
     return (
     <div className="">
