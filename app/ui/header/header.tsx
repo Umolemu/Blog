@@ -14,7 +14,7 @@ const links = [
 export default function Header() {
   return (
     <header className='flex justify-center p-10'>
-        <div className='flex justify-center p-5 space-x-8 items-center w-fit h-fit rounded-3xl sticky top-0 text-black'>
+        <div className='flex justify-center p-5 space-x-8 items-center w-fit h-fit rounded-3xl text-black'>
             <div>
                 <Image 
                     src={logoMini}
